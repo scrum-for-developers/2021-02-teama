@@ -24,11 +24,12 @@
 				Return all borrowed books by one member.
 			</action>
 		</release>
-        <release version="1.1-SNAPSHOT" date="2021-02-25"
+        <release version="1.1.0" date="2021-02-25"
 			description="Release with book description">
 			<action dev="team-heli" type="update">
 				Add book description.
                 See book descriptions.
+                Update Spring Boot to 2.1.18.RELEASE
 			</action>
 		</release>
 	</body>
