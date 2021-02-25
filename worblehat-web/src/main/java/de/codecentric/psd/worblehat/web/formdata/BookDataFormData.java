@@ -2,8 +2,8 @@ package de.codecentric.psd.worblehat.web.formdata;
 
 import de.codecentric.psd.worblehat.web.validation.ISBN;
 import de.codecentric.psd.worblehat.web.validation.Numeric;
+import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /** This class represent the form data of the add book form. */
 public class BookDataFormData {
@@ -21,7 +21,7 @@ public class BookDataFormData {
   private String yearOfPublication;
 
   @NotEmpty(message = "{empty.bookDataFormData.isbn}")
-  @ISBN(message = "{notvalid.bookDataFormData.isbn}")
+  @ISBN
   private String isbn;
 
   @NotEmpty(message = "{empty.bookDataFormData.author}")
