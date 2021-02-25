@@ -22,6 +22,8 @@ public class Book implements Serializable {
   private String isbn;
   private int yearOfPublication;
 
+  private String description;
+
   @OneToOne(mappedBy = "borrowedBook", orphanRemoval = true)
   private Borrowing borrowing;
 
@@ -44,13 +46,15 @@ public class Book implements Serializable {
       @Nonnull String author,
       @Nonnull String edition,
       @Nonnull String isbn,
-      int yearOfPublication) {
+      int yearOfPublication,
+      String description) {
     super();
     this.title = title;
     this.author = author;
     this.edition = edition;
     this.isbn = isbn;
     this.yearOfPublication = yearOfPublication;
+    this.description = description;
   }
 
   public String getTitle() {
@@ -107,23 +111,11 @@ public class Book implements Serializable {
     }
   }
 
-  @Override
-  public String toString() {
-    return "Book{"
-        + "title='"
-        + title
-        + '\''
-        + ", author='"
-        + author
-        + '\''
-        + ", edition='"
-        + edition
-        + '\''
-        + ", isbn='"
-        + isbn
-        + '\''
-        + ", yearOfPublication="
-        + yearOfPublication
-        + '}';
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

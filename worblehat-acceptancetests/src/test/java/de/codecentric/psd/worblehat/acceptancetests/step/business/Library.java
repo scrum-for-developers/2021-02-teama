@@ -9,7 +9,10 @@ import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.domain.BookService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -37,7 +40,12 @@ public class Library {
   public void createLibraryWithSingleBookWithGivenIsbn(String isbn) {
     Book book = DemoBookFactory.createDemoBook().withISBN(isbn).build();
     bookService.createBook(
-        book.getTitle(), book.getAuthor(), book.getEdition(), isbn, book.getYearOfPublication());
+        book.getTitle(),
+        book.getAuthor(),
+        book.getEdition(),
+        isbn,
+        book.getYearOfPublication(),
+        book.getDescription());
   }
 
   @Given("{string} has borrowed books {string}")
@@ -55,7 +63,8 @@ public class Library {
               book.getAuthor(),
               book.getEdition(),
               isbn,
-              book.getYearOfPublication())
+              book.getYearOfPublication(),
+              book.getDescription())
           .orElseThrow(IllegalStateException::new);
 
       bookService.borrowBook(book.getIsbn(), borrower);

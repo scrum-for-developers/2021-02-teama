@@ -30,7 +30,8 @@ public class InsertBookControllerTest {
 
   private BindingResult bindingResult;
 
-  private static final Book TEST_BOOK = new Book("title", "author", "edition", "isbn", 2016);
+  private static final Book TEST_BOOK =
+      new Book("title", "author", "edition", "isbn", 2016, "description");
 
   @BeforeEach
   public void setUp() {
@@ -62,7 +63,7 @@ public class InsertBookControllerTest {
   public void shouldCreateNewCopyOfExistingBook() {
     setupFormData();
     when(bookService.bookExists(TEST_BOOK.getIsbn())).thenReturn(true);
-    when(bookService.createBook(any(), any(), any(), any(), anyInt()))
+    when(bookService.createBook(any(), any(), any(), any(), anyInt(), anyString()))
         .thenReturn(Optional.of(TEST_BOOK));
 
     String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
@@ -75,7 +76,7 @@ public class InsertBookControllerTest {
   public void shouldCreateBookAndNavigateToBookList() {
     setupFormData();
     when(bookService.bookExists(TEST_BOOK.getIsbn())).thenReturn(false);
-    when(bookService.createBook(any(), any(), any(), any(), anyInt()))
+    when(bookService.createBook(any(), any(), any(), any(), anyInt(), anyString()))
         .thenReturn(Optional.of(TEST_BOOK));
 
     String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
@@ -91,7 +92,8 @@ public class InsertBookControllerTest {
             TEST_BOOK.getAuthor(),
             TEST_BOOK.getEdition(),
             TEST_BOOK.getIsbn(),
-            TEST_BOOK.getYearOfPublication());
+            TEST_BOOK.getYearOfPublication(),
+            TEST_BOOK.getDescription());
   }
 
   private void setupFormData() {
@@ -100,5 +102,6 @@ public class InsertBookControllerTest {
     bookDataFormData.setEdition(TEST_BOOK.getEdition());
     bookDataFormData.setIsbn(TEST_BOOK.getIsbn());
     bookDataFormData.setYearOfPublication(String.valueOf(TEST_BOOK.getYearOfPublication()));
+    bookDataFormData.setDescription(TEST_BOOK.getDescription());
   }
 }
