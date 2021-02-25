@@ -49,7 +49,7 @@ public class InsertBookController {
               bookDataFormData.getEdition(),
               bookDataFormData.getIsbn(),
               Integer.parseInt(bookDataFormData.getYearOfPublication()),
-              ""); // TODO description einfuegen
+              "description"); // TODO description einfuegen
       if (book.isPresent()) {
         LOG.info("new book instance is created: " + book.get());
       } else {

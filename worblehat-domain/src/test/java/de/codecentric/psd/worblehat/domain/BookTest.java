@@ -17,34 +17,31 @@ public class BookTest {
 
   @Test
   public void shouldReturnFalseWhenAuthorisDifferent() {
-    Book anotherCopy =
-        getTestBook();
+    Book anotherCopy = getTestBook();
     anotherCopy.setAuthor("Bene");
     assertThat(BOOK.isSameCopy(anotherCopy), is(false));
   }
 
-    private Book getTestBook() {
-        return new Book(
-            BOOK.getTitle(),
-            BOOK.getAuthor(),
-            BOOK.getEdition(),
-            BOOK.getIsbn(),
-            BOOK.getYearOfPublication(),
-            BOOK.getDescription());
-    }
+  private Book getTestBook() {
+    return new Book(
+        BOOK.getTitle(),
+        BOOK.getAuthor(),
+        BOOK.getEdition(),
+        BOOK.getIsbn(),
+        BOOK.getYearOfPublication(),
+        BOOK.getDescription());
+  }
 
-    @Test
+  @Test
   public void shouldReturnFalseWhenTitleisDifferent() {
-    Book anotherCopy =
-        getTestBook();
+    Book anotherCopy = getTestBook();
     anotherCopy.setTitle("Lord of the Rings");
     assertThat(BOOK.isSameCopy(anotherCopy), is(false));
   }
 
   @Test
   public void shouldReturnTrueWhenAllButTitleAndAuthorAreDifferent() {
-    Book anotherCopy =
-        getTestBook();
+    Book anotherCopy = getTestBook();
     anotherCopy.setEdition("2000");
     anotherCopy.setIsbn("123456789X");
     anotherCopy.setYearOfPublication(2010);

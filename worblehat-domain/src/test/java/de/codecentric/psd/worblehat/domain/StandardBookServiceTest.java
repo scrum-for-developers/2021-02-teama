@@ -154,21 +154,21 @@ public class StandardBookServiceTest {
   @Test
   public void shouldCreateAnotherCopyOfExistingBook() {
     when(bookRepository.save(any(Book.class))).thenReturn(aBook);
-      createTestBook();
-      verify(bookRepository, times(1)).save(any(Book.class));
+    createTestBook();
+    verify(bookRepository, times(1)).save(any(Book.class));
   }
 
-    private void createTestBook() {
-        bookService.createBook(
-            aBook.getTitle(),
-            aBook.getAuthor(),
-            aBook.getEdition(),
-            aBook.getIsbn(),
-            aBook.getYearOfPublication(),
-            aBook.getDescription());
-    }
+  private void createTestBook() {
+    bookService.createBook(
+        aBook.getTitle(),
+        aBook.getAuthor(),
+        aBook.getEdition(),
+        aBook.getIsbn(),
+        aBook.getYearOfPublication(),
+        aBook.getDescription());
+  }
 
-    @Test
+  @Test
   public void shouldNotCreateAnotherCopyOfExistingBookWithDifferentTitle() {
     givenALibraryWith(aBook);
     bookService.createBook(
