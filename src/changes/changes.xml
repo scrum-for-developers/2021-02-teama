@@ -32,5 +32,13 @@
                 Update Spring Boot to 2.1.18.RELEASE
 			</action>
 		</release>
+        <release version="1.2.0" date="2021-02-26"
+                 description="Release with book description">
+            <action dev="team-heli" type="update">
+                Added validation for same editions
+                Ui improved for book description
+                Fixed some issues
+            </action>
+        </release>
 	</body>
 </document>

@@ -72,7 +72,7 @@ public class StandardBookService implements BookService {
 
     Optional<Book> bookFromRepo = bookRepository.findTopByIsbn(isbn);
 
-    if (!bookFromRepo.isPresent() || book.isSameCopy(bookFromRepo.get())) {
+    if (bookFromRepo.isEmpty() || book.isSameCopy(bookFromRepo.get())) {
       return Optional.of(bookRepository.save(book));
     } else return Optional.empty();
   }
