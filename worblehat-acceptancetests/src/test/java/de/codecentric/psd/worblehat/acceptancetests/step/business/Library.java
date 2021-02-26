@@ -90,6 +90,7 @@ public class Library {
     assertThat(books, everyItem(hasProperty("isbn", is(isbn))));
   }
 
+  @SuppressWarnings("java:S2925")
   private void waitForServerResponse() {
     // normally you would have much better mechanisms for waiting for a
     // server response. We are choosing a simple solution for the sake of this
