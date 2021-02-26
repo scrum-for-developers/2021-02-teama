@@ -1,12 +1,13 @@
 package de.codecentric.psd.worblehat.domain;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /** The domain service class for book operations. */
 @Service
@@ -70,9 +71,9 @@ public class StandardBookService implements BookService {
       String description) {
     Book book = new Book(title, author, edition, isbn, yearOfPublication, description);
 
-    Optional<Book> bookFromRepo = bookRepository.findTopByIsbn(isbn);
+      Optional<Book> bookFromRepo = bookRepository.findTopByIsbn(isbn);
 
-    if (!bookFromRepo.isPresent() || book.isSameCopy(bookFromRepo.get())) {
+    if (bookFromRepo.isEmpty() || book.isSameCopy(bookFromRepo.get())) {
       return Optional.of(bookRepository.save(book));
     } else return Optional.empty();
   }
