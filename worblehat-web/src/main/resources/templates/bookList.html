@@ -1,34 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Show all Books</title>
+    <title>Show all Books</title>
 </head>
 <body>
-	<table class="bookList">
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Author</th>
-			<th>Year</th>
-			<th>Edition</th>
-			<th>ISBN</th>
-			<th>Description</th>
-			<th>Borrower</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr th:each="book : ${books}">
-			<td th:text="${book.title}">Harry Potter</td>
-			<td th:text="${book.author}">J.K. Rowling</td>
-			<td th:text="${book.yearOfPublication}">2002</td>
-			<td th:text="${book.edition}">1st</td>
-			<td th:text="${book.isbn}">123456</td>
-			<td th:text="${book.description}">Bla </td>
-			<td th:text="${book?.borrowing?.borrowerEmailAddress}">someone@codecentric.de</td>
-		</tr>
-	</tbody>
-	</table>
-	<hr />
-	<a th:href="@{/}">Back to Home</a>
+<table class="bookList">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Edition</th>
+        <th>ISBN</th>
+        <th>Description</th>
+        <th>Borrower</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}">Harry Potter</td>
+        <td th:text="${book.author}">J.K. Rowling</td>
+        <td th:text="${book.yearOfPublication}">2002</td>
+        <td th:text="${book.edition}">1st</td>
+        <td th:text="${book.isbn}">123456</td>
+
+        <td th:text="${book.description}" style="white-space: pre">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna
+            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+            takimata sanctus est Lorem ipsum dolor sit amet.
+        </td>
+        <td th:text="${book?.borrowing?.borrowerEmailAddress}">someone@codecentric.de</td>
+    </tr>
+    </tbody>
+</table>
+<hr/>
+<a th:href="@{/}">Back to Home</a>
 </body>
 </html>
