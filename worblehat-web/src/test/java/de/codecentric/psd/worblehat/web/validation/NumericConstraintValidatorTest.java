@@ -21,19 +21,19 @@ public class NumericConstraintValidatorTest {
     }
 
     @Test
-    public void shouldReturnTrueIfBlank() {
+    void shouldReturnTrueIfBlank() {
         boolean actual = numericConstraintValidator.isValid("", constraintValidatorContext);
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void shouldReturnTrueIfNumeric() {
+    void shouldReturnTrueIfNumeric() {
         boolean actual = numericConstraintValidator.isValid("1", constraintValidatorContext);
         Assertions.assertTrue(actual);
     }
 
     @Test
-    public void shouldReturnFalsIfNotNumeric() {
+    void shouldReturnFalsIfNotNumeric() {
         boolean actual = numericConstraintValidator.isValid("x", constraintValidatorContext);
         Assertions.assertFalse(actual);
     }

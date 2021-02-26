@@ -8,7 +8,9 @@ import org.apache.commons.validator.routines.ISBNValidator;
 public class ISBNConstraintValidator implements ConstraintValidator<ISBN, String> {
 
   @Override
-  public void initialize(ISBN constraintAnnotation) {}
+  public void initialize(ISBN constraintAnnotation) {
+      // required for overwrite/initialization
+  }
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {

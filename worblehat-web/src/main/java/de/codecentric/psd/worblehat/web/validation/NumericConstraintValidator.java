@@ -7,7 +7,9 @@ import org.apache.commons.lang3.StringUtils;
 public class NumericConstraintValidator implements ConstraintValidator<Numeric, String> {
 
   @Override
-  public void initialize(Numeric constraintAnnotation) {}
+  public void initialize(Numeric constraintAnnotation) {
+      // required for overwrite/initialization
+  }
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {
